@@ -29,19 +29,15 @@ $(function () {
     }
 
     // 在发起ajax 的请求
-    $.post(
-      'http://ajax.frontend.itheima.net/api/reguser',
-      data,
-      function (res) {
-        if (res.status !== 0) {
-          // 使用layer.msg()提示消息
-          return layer.msg(res.message)
-        }
-        layer.msg('注册成功')
-        // 模拟人的点击行为
-        $('#link_login').click()
+    $.post('http://127.0.0.1:5500/api/reguser', data, function (res) {
+      if (res.status !== 0) {
+        // 使用layer.msg()提示消息
+        return layer.msg(res.message)
       }
-    )
+      layer.msg('注册成功')
+      // 模拟人的点击行为
+      $('#link_login').click()
+    })
   })
 
   // 监听登录表单的提交事件
